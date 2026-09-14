@@ -771,7 +771,6 @@
     </section>
 
 
-
     <!-- ================= KONTAK ================= -->
 
     <section
@@ -803,7 +802,6 @@
     </section>
 
 
-
     <!-- ================= FOOTER ================= -->
 
     <footer>
@@ -826,3 +824,757 @@
 
 </body>
               </html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jemblem Store | Jajanan Tradisional</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8ef;
+            color: #3d281c;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #7b3f16;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd27f;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(80, 35, 10, 0.65),
+                    rgba(50, 20, 5, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: #ffd447;
+            color: #4a270d;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* SECTION */
+        section {
+            padding: 75px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 38px;
+            color: #7b3f16;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            max-width: 700px;
+            margin: 0 auto 45px;
+            text-align: center;
+            color: #705b4d;
+            line-height: 1.7;
+        }
+
+        /* PRODUK */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(80, 40, 10, 0.12);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .discount {
+            display: inline-block;
+            background: #ffe1d5;
+            color: #d33b1f;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            color: #7b3f16;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #705b4d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+
+        .price {
+            color: #d33b1f;
+            font-size: 27px;
+            font-weight: bold;
+            margin: 5px 0 18px;
+        }
+
+        .checkout {
+            display: block;
+            text-align: center;
+            background: #25d366;
+            color: white;
+            padding: 13px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .checkout:hover {
+            background: #1ebe5d;
+        }
+
+        /* BAHAN */
+        .quality {
+            background: #fff0dc;
+        }
+
+        .quality-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .quality-box h2 {
+            color: #7b3f16;
+            margin-bottom: 15px;
+        }
+
+        .quality-box p {
+            line-height: 1.8;
+            color: #705b4d;
+        }
+
+        /* PROMO */
+        .promo {
+            text-align: center;
+            background: #7b3f16;
+            color: white;
+        }
+
+        .promo h2 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .promo p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* KONTAK */
+        .contact {
+            text-align: center;
+        }
+
+        .number {
+            font-size: 25px;
+            color: #25a957;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #4d250d;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            🍠 Jemblem Store
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#promo">Promo</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="promo-badge">
+                🔥 PROMO SPESIAL DISKON 10%
+            </div>
+
+            <h1>
+                Jemblem Enak 🍠
+            </h1>
+
+            <p>
+                Jajanan tradisional berbahan dasar
+                singkong pilihan dengan rasa manis,
+                gurih, dan lezat.
+            </p>
+
+            <a href="#produk" class="btn">
+                🛍️ Lihat Produk
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUK -->
+    <section id="produk">
+
+        <h2 class="title">
+            Varian Jemblem
+        </h2>
+
+        <p class="description">
+            Nikmati berbagai varian jemblem dengan
+            bahan berkualitas dan cita rasa yang
+            cocok untuk menemani waktu santai.
+        </p>
+
+
+        <div class="products">
+
+
+            <!-- JEMBLEM ORIGINAL -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Original">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Original
+                    </h3>
+
+                    <p>
+                        Jemblem klasik dengan rasa singkong
+                        yang gurih dan isian gula merah
+                        yang manis.
+                    </p>
+
+                    <div class="old-price">
+                        Rp15.000
+                    </div>
+
+                    <div class="price">
+                        Rp13.500
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Original%20seharga%20Rp13.500"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEMBLEM COKELAT -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Cokelat">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Cokelat
+                    </h3>
+
+                    <p>
+                        Jemblem lembut dengan perpaduan
+                        singkong dan isian cokelat yang
+                        manis dan nikmat.
+                    </p>
+
+                    <div class="old-price">
+                        Rp18.000
+                    </div>
+
+                    <div class="price">
+                        Rp16.200
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Cokelat%20seharga%20Rp16.200"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEMBLEM KEJU -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Keju">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Keju
+                    </h3>
+
+                    <p>
+                        Perpaduan jemblem tradisional
+                        dengan isian keju yang gurih
+                        dan lezat.
+                    </p>
+
+                    <div class="old-price">
+                        Rp20.000
+                    </div>
+
+                    <div class="price">
+                        Rp18.000
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Keju%20seharga%20Rp18.000"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEMBLEM PANDAN -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Pandan">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Pandan
+                    </h3>
+
+                    <p>
+                        Jemblem dengan aroma pandan
+                        yang harum dan rasa manis
+                        yang khas.
+                    </p>
+
+                    <div class="old-price">
+                        Rp17.000
+                    </div>
+
+                    <div class="price">
+                        Rp15.300
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Pandan%20seharga%20Rp15.300"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEMBLEM KACANG -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Kacang">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Kacang
+                    </h3>
+
+                    <p>
+                        Jemblem dengan tambahan kacang
+                        yang memberikan tekstur renyah
+                        dan rasa gurih.
+                    </p>
+
+                    <div class="old-price">
+                        Rp18.000
+                    </div>
+
+                    <div class="price">
+                        Rp16.200
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Kacang%20seharga%20Rp16.200"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEMBLEM MIX -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1200&q=90"
+                    alt="Jemblem Mix">
+
+                <div class="card-content">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Jemblem Mix
+                    </h3>
+
+                    <p>
+                        Paket kombinasi beberapa varian
+                        jemblem untuk kamu yang ingin
+                        mencoba berbagai rasa.
+                    </p>
+
+                    <div class="old-price">
+                        Rp25.000
+                    </div>
+
+                    <div class="price">
+                        Rp22.500
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20checkout%20Jemblem%20Mix%20seharga%20Rp22.500"
+                        target="_blank">
+
+                        📱 Checkout WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BAHAN BERKUALITAS -->
+    <section class="quality">
+
+        <div class="quality-box">
+
+            <h2>
+                🌿 Bahan Berkualitas
+            </h2>
+
+            <p>
+                Jemblem kami dibuat menggunakan
+                bahan-bahan pilihan yang berkualitas
+                dan diolah dengan baik. Kami mengutamakan
+                kebersihan, rasa, dan kualitas agar setiap
+                gigitan terasa lezat dan nikmat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+    <section class="promo" id="promo">
+
+        <h2>
+            🎉 DISKON 10%
+        </h2>
+
+        <p>
+            Dapatkan potongan harga <b>10%</b>
+            untuk semua varian jemblem!
+        </p>
+
+        <p>
+            Jangan lewatkan promo spesial ini.
+            Pesan sekarang melalui WhatsApp.
+        </p>
+
+        <a
+            href="https://wa.me/6281234567890?text=Halo%20Jemblem%20Store,%20saya%20ingin%20klaim%20promo%20diskon%2010%25"
+            target="_blank"
+            class="btn">
+
+            💬 Klaim Promo
+
+        </a>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+
+        <h2 class="title">
+            Hubungi Kami 📱
+        </h2>
+
+        <p>
+            Untuk pemesanan atau pertanyaan,
+            silakan hubungi kami melalui WhatsApp.
+        </p>
+
+        <div class="number">
+            0812-3456-7890
+        </div>
+
+        <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            class="btn">
+
+            💬 Chat WhatsApp
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            🍠 <b>Jemblem Store</b>
+        </p>
+
+        <p>
+            Jajanan Tradisional • Rasa Istimewa
+        </p>
+
+        <p>
+            © 2026 Jemblem Store
+        </p>
+
+    </footer>
+
+</body>
+</html>
