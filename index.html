@@ -1,1 +1,829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Whale Store | Produk Ikan Paus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f0faff;
+            color: #123;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            background: #063b66;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #64ddff;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(0, 55, 95, 0.75),
+                    rgba(0, 20, 50, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #ffcf33;
+            color: #17202a;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #25d366;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            color: #063b66;
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            text-align: center;
+
+            color: #666;
+
+            max-width: 700px;
+
+            margin: 0 auto 45px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= PRODUK ================= */
+
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.10);
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 270px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 23px;
+
+            color: #063b66;
+
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #666;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .old-price {
+            color: #999;
+
+            text-decoration: line-through;
+
+            font-size: 14px;
+        }
+
+        .price {
+            color: #e63946;
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            margin: 5px 0 18px;
+        }
+
+        .discount {
+            display: inline-block;
+
+            background: #ffe1e1;
+
+            color: #e63946;
+
+            padding: 5px 10px;
+
+            border-radius: 5px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .checkout {
+            display: block;
+
+            text-align: center;
+
+            background: #25d366;
+
+            color: white;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .checkout:hover {
+            background: #1ebe5d;
+        }
+
+
+        /* ================= PROMO ================= */
+
+        .promo-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d8f5ff,
+                    #b9e9ff
+                );
+
+            text-align: center;
+        }
+
+        .promo-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 50px 30px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.08);
+        }
+
+        .promo-box h2 {
+            color: #e63946;
+
+            font-size: 50px;
+
+            margin-bottom: 15px;
+        }
+
+        .promo-box p {
+            font-size: 18px;
+
+            color: #555;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= KEUNGGULAN ================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .feature {
+            text-align: center;
+
+            background: white;
+
+            padding: 35px 20px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #063b66;
+
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= KONTAK ================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .whatsapp-number {
+            font-size: 25px;
+
+            color: #25d366;
+
+            font-weight: bold;
+
+            margin: 20px 0;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #063b66;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .products,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            nav ul {
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            🐋 Whale Store
+        </div>
+
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#produk">Produk</a>
+            </li>
+
+            <li>
+                <a href="#promo">Promo</a>
+            </li>
+
+            <li>
+                <a href="#kontak">Kontak</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🔥 PROMO TERBATAS - DISKON 10%
+            </div>
+
+            <h1>
+                Whale Store 🐋
+            </h1>
+
+            <p>
+                Temukan berbagai produk keren
+                bertema ikan paus dengan desain
+                unik, modern, dan berkualitas.
+            </p>
+
+            <a
+                href="#produk"
+                class="btn">
+
+                🛍️ Belanja Sekarang
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PRODUK ================= -->
+
+    <section id="produk">
+
+        <h2 class="section-title">
+            Produk Pilihan 🐋
+        </h2>
+
+        <p class="section-description">
+            Pilih produk favoritmu dan dapatkan
+            harga spesial dengan promo diskon 10%.
+        </p>
+
+
+        <div class="products">
+
+
+            <!-- PRODUK 1 -->
+
+            <div class="product-card">
+
+                <img
+                    class="product-image"
+                    src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=90"
+                    alt="Produk Whale T-Shirt">
+
+                <div class="product-info">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Whale T-Shirt
+                    </h3>
+
+                    <p>
+                        Kaos nyaman dengan desain
+                        ikan paus yang keren dan modern.
+                    </p>
+
+                    <div class="old-price">
+                        Rp150.000
+                    </div>
+
+                    <div class="price">
+                        Rp135.000
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Whale%20Store,%20saya%20ingin%20checkout%20Whale%20T-Shirt%20seharga%20Rp135.000"
+                        target="_blank">
+
+                        📱 Checkout via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUK 2 -->
+
+            <div class="product-card">
+
+                <img
+                    class="product-image"
+                    src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=1200&q=90"
+                    alt="Produk Whale Tote Bag">
+
+                <div class="product-info">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Whale Tote Bag
+                    </h3>
+
+                    <p>
+                        Tas tote bertema ikan paus
+                        yang cocok digunakan sehari-hari.
+                    </p>
+
+                    <div class="old-price">
+                        Rp100.000
+                    </div>
+
+                    <div class="price">
+                        Rp90.000
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Whale%20Store,%20saya%20ingin%20checkout%20Whale%20Tote%20Bag%20seharga%20Rp90.000"
+                        target="_blank">
+
+                        📱 Checkout via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUK 3 -->
+
+            <div class="product-card">
+
+                <img
+                    class="product-image"
+                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=90"
+                    alt="Produk Whale Poster">
+
+                <div class="product-info">
+
+                    <span class="discount">
+                        DISKON 10%
+                    </span>
+
+                    <h3>
+                        Whale Poster
+                    </h3>
+
+                    <p>
+                        Poster dekorasi bertema laut
+                        dan ikan paus untuk kamar.
+                    </p>
+
+                    <div class="old-price">
+                        Rp75.000
+                    </div>
+
+                    <div class="price">
+                        Rp67.500
+                    </div>
+
+                    <a
+                        class="checkout"
+                        href="https://wa.me/6281234567890?text=Halo%20Whale%20Store,%20saya%20ingin%20checkout%20Whale%20Poster%20seharga%20Rp67.500"
+                        target="_blank">
+
+                        📱 Checkout via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PROMO ================= -->
+
+    <section
+        class="promo-section"
+        id="promo">
+
+        <div class="promo-box">
+
+            <h2>
+                🎉 DISKON 10%
+            </h2>
+
+            <p>
+                Nikmati promo spesial dari
+                <b>Whale Store</b>.
+            </p>
+
+            <p>
+                Semua produk pilihan mendapatkan
+                potongan harga <b>10%</b>.
+            </p>
+
+            <a
+                href="https://wa.me/6281234567890?text=Halo%20Whale%20Store,%20saya%20ingin%20klaim%20promo%20diskon%2010%25"
+                target="_blank"
+                class="btn">
+
+                💬 Klaim Promo
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= KEUNGGULAN ================= -->
+
+    <section>
+
+        <h2 class="section-title">
+            Kenapa Belanja di Whale Store?
+        </h2>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Produk Berkualitas
+                </h3>
+
+                <p>
+                    Produk dipilih dengan mengutamakan
+                    kualitas dan desain yang menarik.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🚚
+                </div>
+
+                <h3>
+                    Pengiriman
+                </h3>
+
+                <p>
+                    Produk dikemas dengan baik
+                    sebelum dikirim kepada pelanggan.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Mudah Checkout
+                </h3>
+
+                <p>
+                    Pemesanan dapat dilakukan dengan
+                    mudah melalui WhatsApp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= KONTAK ================= -->
+
+    <section
+        class="contact"
+        id="kontak">
+
+        <h2 class="section-title">
+            Hubungi Kami 📱
+        </h2>
+
+        <p>
+            Untuk pemesanan atau pertanyaan,
+            silakan hubungi WhatsApp kami.
+        </p>
+
+        <div class="whatsapp-number">
+            0812-3456-7890
+        </div>
+
+        <a
+            href="https://wa.me/081217573402"
+            target="_blank"
+            class="btn">
+
+            💬 Chat WhatsApp
+
+        </a>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            🐋 <b>Whale Store</b>
+        </p>
+
+        <p>
+            Produk bertema ikan paus 🌊
+        </p>
+
+        <p>
+            © 2026 Whale Store. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+              </html>
