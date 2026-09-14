@@ -1578,3 +1578,523 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Es Cincau Segar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3fff8;
+            color: #24352b;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #176b3a;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #b9ffd0;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(10, 70, 38, 0.60),
+                    rgba(0, 35, 20, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: #ffe052;
+            color: #263d22;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* PRODUK */
+        section {
+            padding: 75px 8%;
+        }
+
+        .title {
+            text-align: center;
+            color: #176b3a;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: center;
+            color: #617267;
+            line-height: 1.7;
+        }
+
+        .product {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 10px 35px rgba(0, 60, 30, 0.12);
+        }
+
+        .product img {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .discount {
+            display: inline-block;
+            width: fit-content;
+            background: #ffe2df;
+            color: #d93625;
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-info h2 {
+            color: #176b3a;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            color: #617267;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 16px;
+        }
+
+        .price {
+            color: #e04432;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 5px 0 20px;
+        }
+
+        .checkout {
+            display: block;
+            text-align: center;
+            background: #25d366;
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .checkout:hover {
+            background: #1ebe5d;
+        }
+
+        /* KEUNGGULAN */
+        .quality {
+            background: #ddf7e8;
+        }
+
+        .quality-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .quality-box h2 {
+            color: #176b3a;
+            margin-bottom: 15px;
+        }
+
+        .quality-box p {
+            color: #617267;
+            line-height: 1.8;
+        }
+
+        /* PROMO */
+        .promo {
+            background: #176b3a;
+            color: white;
+            text-align: center;
+        }
+
+        .promo h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .promo p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* KONTAK */
+        .contact {
+            text-align: center;
+        }
+
+        .number {
+            color: #20a957;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d4827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+            }
+
+            .product img {
+                min-height: 300px;
+            }
+
+            .product-info {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            🥤 Es Cincau Segar
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#promo">Promo</a>
+            <a href="#kontak">Kontak</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="promo-badge">
+                🔥 PROMO DISKON 10%
+            </div>
+
+            <h1>
+                Es Cincau Segar 🥤
+            </h1>
+
+            <p>
+                Kesegaran cincau lembut dengan rasa manis
+                yang pas. Cocok dinikmati saat cuaca panas
+                maupun saat bersantai.
+            </p>
+
+            <a href="#produk" class="btn">
+                🛍️ Pesan Sekarang
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUK -->
+    <section id="produk">
+
+        <h2 class="title">
+            Produk Kami
+        </h2>
+
+        <p class="description">
+            Satu pilihan terbaik untuk menemani harimu.
+            Dibuat dari bahan pilihan dan disajikan
+            dengan penuh perhatian.
+        </p>
+
+
+        <div class="product">
+
+            <img
+                src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=90"
+                alt="Es Cincau Segar">
+
+            <div class="product-info">
+
+                <span class="discount">
+                    🔥 DISKON 10%
+                </span>
+
+                <h2>
+                    Es Cincau Segar
+                </h2>
+
+                <p>
+                    Es cincau dengan tekstur cincau yang lembut,
+                    dipadukan dengan minuman manis dan es yang
+                    menyegarkan.
+                </p>
+
+                <p>
+                    🥤 Ukuran: 500 ml
+                </p>
+
+                <div class="old-price">
+                    Harga Normal: Rp15.000
+                </div>
+
+                <div class="price">
+                    Rp13.500
+                </div>
+
+                <a
+                    class="checkout"
+                    href="https://wa.me/6281234567890?text=Halo%20Es%20Cincau%20Store,%20saya%20ingin%20checkout%20Es%20Cincau%20Segar%20dengan%20harga%20promo%20Rp13.500"
+                    target="_blank">
+
+                    📱 Checkout via WhatsApp
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BAHAN BERKUALITAS -->
+    <section class="quality">
+
+        <div class="quality-box">
+
+            <h2>
+                🌿 Bahan Berkualitas
+            </h2>
+
+            <p>
+                Es Cincau Segar dibuat menggunakan bahan-bahan
+                pilihan yang berkualitas. Cincau diolah dengan
+                memperhatikan kebersihan dan dipadukan dengan
+                bahan minuman yang nikmat sehingga menghasilkan
+                minuman yang segar dan lezat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+    <section class="promo" id="promo">
+
+        <h2>
+            🎉 PROMO 10%
+        </h2>
+
+        <p>
+            Harga normal <b>Rp15.000</b>
+        </p>
+
+        <p>
+            Sekarang hanya <b>Rp13.500</b>!
+        </p>
+
+        <a
+            href="https://wa.me/6281217573402?text=Halo%20Es%20Cincau%20Store,%20saya%20ingin%20membeli%20Es%20Cincau%20dengan%20promo%2010%25"
+            target="_blank"
+            class="btn">
+
+            💬 Ambil Promo
+
+        </a>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+
+        <h2 class="title">
+            Pesan Sekarang 📱
+        </h2>
+
+        <p>
+            Klik tombol WhatsApp untuk melakukan
+            pemesanan Es Cincau Segar.
+        </p>
+
+        <div class="number">
+            0812-3456-7890
+        </div>
+
+        <a
+            href="https://wa.me/6281217573402"
+            target="_blank"
+            class="btn">
+
+            💬 Chat WhatsApp 081217573402
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            🥤 <b>Es Cincau Segar</b>
+        </p>
+
+        <p>
+            Segar • Nikmat • Berkualitas
+        </p>
+
+        <p>
+            Amira khilmiatul. m
+        </p>
+
+    </footer>
+
+</body>
+</html>
